@@ -1,0 +1,3767 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,
+           initial-scale=1.0,
+           viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#0b3954">
+
+<meta
+  name="apple-mobile-web-app-capable"
+  content="yes"
+>
+
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent"
+>
+
+<title>沖繩家族自駕 App</title>
+
+
+<style>
+
+/* =========================================================
+   基本設定
+========================================================= */
+
+:root {
+
+  --navy: #0b3954;
+  --navy-dark: #062b40;
+
+  --blue: #087e8b;
+  --cyan: #42b7c5;
+
+  --sand: #f8f4ec;
+  --cream: #fffdf8;
+  --white: #ffffff;
+
+  --text: #23313b;
+  --muted: #71808a;
+
+  --line: #e7e2d9;
+
+  --green: #24966b;
+  --green-light: #e8f7ef;
+
+  --orange: #e89a3d;
+  --red: #d95c5c;
+
+  --shadow:
+    0 10px 30px rgba(11,57,84,.09);
+
+  --radius: 20px;
+}
+
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+
+  margin: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #eaf7f8 0,
+      #f8f4ec 260px,
+      #f8f4ec 100%
+    );
+
+  color: var(--text);
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Noto Sans TC",
+    "PingFang TC",
+    "Microsoft JhengHei",
+    sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+}
+
+
+button,
+input {
+  font: inherit;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   App
+========================================================= */
+
+.app {
+
+  max-width: 680px;
+
+  margin: 0 auto;
+
+  min-height: 100vh;
+
+  padding-bottom: 110px;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+  padding:
+    30px
+    20px
+    22px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(7,43,64,.98),
+      rgba(11,57,84,.94)
+    );
+
+  border-radius:
+    0 0 32px 32px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(7,43,64,.18);
+
+}
+
+
+.hero-top {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    flex-start;
+
+  gap: 15px;
+
+}
+
+
+.eyebrow {
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  opacity: .72;
+
+}
+
+
+.hero h1 {
+
+  margin: 2px 0 0;
+
+  font-size: 28px;
+
+  line-height: 1.3;
+
+}
+
+
+.hero p {
+
+  margin: 8px 0 0;
+
+  color:
+    rgba(255,255,255,.78);
+
+  font-size: 15px;
+
+}
+
+
+.hero-icon {
+
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,.12);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 27px;
+
+}
+
+
+/* =========================================================
+   DAY TAB
+========================================================= */
+
+.tabs-wrap {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 20;
+
+  padding: 12px 15px;
+
+  background:
+    rgba(248,244,236,.94);
+
+  backdrop-filter:
+    blur(14px);
+
+  border-bottom:
+    1px solid
+    rgba(232,227,217,.7);
+
+}
+
+
+.tabs {
+
+  display: flex;
+
+  gap: 9px;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+
+}
+
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+
+.day-btn {
+
+  flex: 0 0 auto;
+
+  border: 0;
+
+  background: white;
+
+  color: var(--muted);
+
+  min-width: 82px;
+
+  padding: 10px 14px;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 3px 12px
+    rgba(11,57,84,.05);
+
+  font-weight: 700;
+
+}
+
+
+.day-btn small {
+
+  display: block;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+}
+
+
+.day-btn.active {
+
+  color: white;
+
+  background: var(--navy);
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+
+  padding:
+    18px 16px 0;
+
+}
+
+
+.day-header {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    flex-end;
+
+  gap: 15px;
+
+  margin:
+    5px 4px 16px;
+
+}
+
+
+.day-title {
+
+  margin: 0;
+
+  color: var(--navy);
+
+  font-size: 25px;
+
+  line-height: 1.3;
+
+}
+
+
+.day-subtitle {
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  margin-top: 4px;
+
+}
+
+
+.route-pill {
+
+  white-space: nowrap;
+
+  background: #e8f5f6;
+
+  color: var(--blue);
+
+  padding: 7px 11px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+
+  position: relative;
+
+}
+
+
+.timeline::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 26px;
+
+  top: 20px;
+
+  bottom: 25px;
+
+  width: 2px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #9edce2,
+      #dcebe9
+    );
+
+}
+
+
+.stop {
+
+  position: relative;
+
+  padding-left: 58px;
+
+  margin-bottom: 18px;
+
+}
+
+
+.stop-dot {
+
+  position: absolute;
+
+  left: 15px;
+
+  top: 15px;
+
+  width: 24px;
+
+  height: 24px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  border: 6px solid var(--cyan);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(66,183,197,.12);
+
+  z-index: 2;
+
+}
+
+
+.card {
+
+  background:
+    rgba(255,255,255,.96);
+
+  border:
+    1px solid
+    rgba(232,227,217,.8);
+
+  border-radius: var(--radius);
+
+  padding: 17px;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+.time {
+
+  color: var(--blue);
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+}
+
+
+.place {
+
+  margin: 4px 0 0;
+
+  color: var(--navy);
+
+  font-size: 20px;
+
+  line-height: 1.35;
+
+}
+
+
+.description {
+
+  margin:
+    7px 0 13px;
+
+  color: #5e6c74;
+
+  font-size: 15px;
+
+}
+
+
+.route-line {
+
+  color: #77848a;
+
+  font-size: 13px;
+
+  margin-bottom: 10px;
+
+}
+
+
+.map-btn {
+
+  width: 100%;
+
+  border: 0;
+
+  border-radius: 14px;
+
+  padding: 12px;
+
+  background: var(--navy);
+
+  color: white;
+
+  font-weight: 800;
+
+  font-size: 16px;
+
+}
+
+
+/* =========================================================
+   VILLA
+========================================================= */
+
+.villa {
+
+  background:
+    linear-gradient(
+      135deg,
+      #e9f8ef,
+      #f6fff9
+    );
+
+  border:
+    2px solid #9bd6b8;
+
+}
+
+
+.villa-badge {
+
+  display: inline-block;
+
+  background:
+    var(--green);
+
+  color: white;
+
+  border-radius: 999px;
+
+  padding: 5px 10px;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section {
+
+  margin-top: 30px;
+
+}
+
+
+.section-title {
+
+  color: var(--navy);
+
+  font-size: 21px;
+
+  margin:
+    0 0 12px;
+
+}
+
+
+/* =========================================================
+   TRANSLATOR
+========================================================= */
+
+.translator {
+
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 16px;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+/* category */
+
+.translate-categories {
+
+  display: flex;
+
+  gap: 8px;
+
+  overflow-x: auto;
+
+  padding-bottom: 8px;
+
+  scrollbar-width: none;
+
+}
+
+
+.translate-categories::-webkit-scrollbar {
+  display: none;
+}
+
+
+.category-btn {
+
+  flex: 0 0 auto;
+
+  border: 0;
+
+  background: #f1f5f5;
+
+  color: #627078;
+
+  padding:
+    9px 13px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+}
+
+
+.category-btn.active {
+
+  background: var(--navy);
+
+  color: white;
+
+}
+
+
+/* phrase list */
+
+.phrase-list {
+
+  display: grid;
+
+  gap: 10px;
+
+  margin-top: 8px;
+
+}
+
+
+.phrase {
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius: 17px;
+
+  padding: 14px;
+
+  background:
+    #fffefa;
+
+}
+
+
+.phrase-chinese {
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  color: #53636b;
+
+}
+
+
+.phrase-japanese {
+
+  margin-top: 5px;
+
+  color: var(--navy);
+
+  font-size: 22px;
+
+  font-weight: 900;
+
+  line-height: 1.45;
+
+}
+
+
+.phrase-romaji {
+
+  color: #89959a;
+
+  font-size: 13px;
+
+  margin-top: 2px;
+
+}
+
+
+.phrase-actions {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 10px;
+
+}
+
+
+.phrase-btn {
+
+  border: 0;
+
+  border-radius: 12px;
+
+  padding: 10px 8px;
+
+  font-weight: 800;
+
+  font-size: 14px;
+
+}
+
+
+.speak-btn {
+
+  background:
+    #e8f5f6;
+
+  color: var(--blue);
+
+}
+
+
+.copy-btn {
+
+  background:
+    #f2f2f2;
+
+  color: #5f6c72;
+
+}
+
+
+/* =========================================================
+   CONVERSATION MODE
+========================================================= */
+
+.conversation {
+
+  margin-top: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b3954,
+      #087e8b
+    );
+
+  color: white;
+
+  border-radius: 22px;
+
+  padding: 18px;
+
+}
+
+
+.conversation-title {
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+}
+
+
+.conversation-help {
+
+  color:
+    rgba(255,255,255,.75);
+
+  font-size: 13px;
+
+  margin-top: 2px;
+
+}
+
+
+.conversation-screen {
+
+  margin-top: 14px;
+
+  background:
+    rgba(255,255,255,.1);
+
+  border-radius: 17px;
+
+  padding: 15px;
+
+  text-align: center;
+
+}
+
+
+.conversation-cn {
+
+  font-size: 15px;
+
+  opacity: .8;
+
+}
+
+
+.conversation-jp {
+
+  margin-top: 5px;
+
+  font-size: 29px;
+
+  font-weight: 900;
+
+  line-height: 1.4;
+
+}
+
+
+.conversation-romaji {
+
+  opacity: .65;
+
+  font-size: 13px;
+
+}
+
+
+.conversation-buttons {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 12px;
+
+}
+
+
+.conversation-buttons button {
+
+  border: 0;
+
+  border-radius: 13px;
+
+  padding: 12px;
+
+  font-weight: 900;
+
+}
+
+
+.next-btn {
+
+  background: white;
+
+  color: var(--navy);
+
+}
+
+
+.repeat-btn {
+
+  background:
+    rgba(255,255,255,.13);
+
+  color: white;
+
+}
+
+
+/* =========================================================
+   EXPENSE
+========================================================= */
+
+.expense-summary {
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b3954,
+      #087e8b
+    );
+
+  color: white;
+
+  border-radius: 24px;
+
+  padding: 20px;
+
+}
+
+
+.expense-label {
+
+  opacity: .76;
+
+  font-size: 13px;
+
+}
+
+
+.expense-total {
+
+  font-size: 32px;
+
+  font-weight: 900;
+
+}
+
+
+.expense-jpy {
+
+  font-size: 14px;
+
+  opacity: .8;
+
+}
+
+
+.rate-row {
+
+  margin-top: 14px;
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items: center;
+
+  background:
+    rgba(255,255,255,.1);
+
+  border-radius: 13px;
+
+  padding: 10px;
+
+  font-size: 13px;
+
+}
+
+
+.rate-row input {
+
+  width: 80px;
+
+  border: 0;
+
+  border-radius: 9px;
+
+  padding: 5px;
+
+  text-align: right;
+
+}
+
+
+.expense-form {
+
+  margin-top: 12px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 16px;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+.input-group {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 110px;
+
+  gap: 10px;
+
+}
+
+
+.field {
+
+  width: 100%;
+
+  border:
+    1px solid var(--line);
+
+  background: #fffdf9;
+
+  border-radius: 13px;
+
+  padding: 12px;
+
+  outline: none;
+
+}
+
+
+.add-btn {
+
+  width: 100%;
+
+  margin-top: 10px;
+
+  border: 0;
+
+  background: var(--blue);
+
+  color: white;
+
+  padding: 12px;
+
+  border-radius: 13px;
+
+  font-weight: 800;
+
+}
+
+
+.expense-list {
+
+  margin-top: 12px;
+
+  display: grid;
+
+  gap: 9px;
+
+}
+
+
+.expense-item {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items: center;
+
+  background: white;
+
+  border:
+    1px solid var(--line);
+
+  border-radius: 15px;
+
+  padding: 12px 14px;
+
+}
+
+
+.expense-name {
+  font-weight: 700;
+}
+
+
+.expense-date {
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+}
+
+
+.expense-money {
+
+  text-align: right;
+
+}
+
+
+.delete-btn {
+
+  margin-left: 6px;
+
+  border: 0;
+
+  background: #fff0f0;
+
+  color: var(--red);
+
+  border-radius: 9px;
+
+  padding: 5px 7px;
+
+}
+
+
+.clear-btn {
+
+  margin-top: 10px;
+
+  border:
+    1px solid #efcccc;
+
+  background: white;
+
+  color: var(--red);
+
+  border-radius: 11px;
+
+  padding: 8px 11px;
+
+}
+
+
+/* =========================================================
+   PACKING
+========================================================= */
+
+.packing {
+
+  background: white;
+
+  border-radius: 22px;
+
+  padding: 17px;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+.check-item {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 2px;
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+
+.check-item input {
+
+  width: 22px;
+
+  height: 22px;
+
+  accent-color: var(--green);
+
+}
+
+
+.check-item.done span {
+
+  text-decoration: line-through;
+
+  color: #9aa3a7;
+
+}
+
+
+.packing-progress {
+
+  margin-top: 12px;
+
+  height: 8px;
+
+  background: #edf1ef;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+
+}
+
+
+.packing-progress-bar {
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--green),
+      #67c89a
+    );
+
+  width: 0%;
+
+}
+
+
+/* =========================================================
+   SAFETY
+========================================================= */
+
+.safety {
+
+  background: white;
+
+  border-radius: 22px;
+
+  padding: 17px;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+.emergency-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+
+}
+
+
+.emergency-btn {
+
+  border: 0;
+
+  border-radius: 16px;
+
+  padding: 15px;
+
+  color: white;
+
+  font-weight: 900;
+
+  font-size: 16px;
+
+}
+
+
+.police {
+
+  background: #2356a4;
+
+}
+
+
+.ambulance {
+
+  background: #d74d4d;
+
+}
+
+
+.jnto {
+
+  grid-column: 1 / -1;
+
+  background: var(--navy);
+
+}
+
+
+.mcc {
+
+  grid-column: 1 / -1;
+
+  background: var(--green);
+
+}
+
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.notice {
+
+  margin-top: 18px;
+
+  background: #fff8e9;
+
+  border:
+    1px solid #f0d59d;
+
+  border-radius: 18px;
+
+  padding: 15px;
+
+}
+
+
+.notice-title {
+
+  color: #a46a13;
+
+  font-weight: 900;
+
+}
+
+
+.notice p {
+
+  margin: 0;
+
+  font-size: 14px;
+
+  color: #735b35;
+
+}
+
+
+/* =========================================================
+   BOTTOM BAR
+========================================================= */
+
+.bottom-bar {
+
+  position: fixed;
+
+  left: 50%;
+
+  bottom: 12px;
+
+  transform:
+    translateX(-50%);
+
+  width:
+    min(
+      650px,
+      calc(100% - 24px)
+    );
+
+  background:
+    rgba(7,43,64,.94);
+
+  backdrop-filter:
+    blur(14px);
+
+  border-radius: 20px;
+
+  padding: 8px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap: 5px;
+
+  box-shadow:
+    0 15px 35px
+    rgba(7,43,64,.28);
+
+  z-index: 50;
+
+}
+
+
+.bottom-btn {
+
+  border: 0;
+
+  background: transparent;
+
+  color:
+    rgba(255,255,255,.65);
+
+  padding: 9px 4px;
+
+  border-radius: 13px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+}
+
+
+.bottom-btn span {
+
+  display: block;
+
+  font-size: 20px;
+
+  line-height: 1;
+
+  margin-bottom: 3px;
+
+}
+
+
+.bottom-btn.active {
+
+  color: white;
+
+  background:
+    rgba(255,255,255,.12);
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width:700px) {
+
+  body {
+    padding: 20px 0;
+  }
+
+  .app {
+
+    background: #f8f4ec;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+      0 20px 70px
+      rgba(11,57,84,.13);
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<header class="hero">
+
+  <div class="hero-top">
+
+    <div>
+
+      <div class="eyebrow">
+        FAMILY ROAD TRIP · OKINAWA 2026
+      </div>
+
+      <h1>
+        沖繩 5 天 4 夜
+      </h1>
+
+      <p>
+        長輩友善・慢遊自駕・翻譯助手
+      </p>
+
+    </div>
+
+    <div class="hero-icon">
+      🌺
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<!-- ======================================================
+     DAY TABS
+======================================================= -->
+
+<div class="tabs-wrap">
+
+  <div
+    class="tabs"
+    id="dayTabs"
+  ></div>
+
+</div>
+
+
+
+<main>
+
+
+<!-- ======================================================
+     行程
+======================================================= -->
+
+<section id="scheduleSection">
+
+  <div class="day-header">
+
+    <div>
+
+      <h2
+        class="day-title"
+        id="dayTitle"
+      ></h2>
+
+      <div
+        class="day-subtitle"
+        id="daySubtitle"
+      ></div>
+
+    </div>
+
+    <div
+      class="route-pill"
+      id="routePill"
+    ></div>
+
+  </div>
+
+
+  <div
+    class="timeline"
+    id="timeline"
+  ></div>
+
+
+  <div
+    class="notice"
+    id="flightNotice"
+    style="display:none;"
+  >
+
+    <div class="notice-title">
+      ✈️ 回程提醒
+    </div>
+
+    <p>
+      建議最晚
+      <strong>11:15 前抵達租車公司</strong>
+      完成還車，再前往那霸機場。
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     翻譯助手
+======================================================= -->
+
+<section
+  class="section"
+  id="translateSection"
+>
+
+  <h2 class="section-title">
+    🗣️ 長輩翻譯助手
+  </h2>
+
+
+  <div class="translator">
+
+
+    <!-- 分類 -->
+
+    <div
+      class="translate-categories"
+      id="translateCategories"
+    ></div>
+
+
+    <!-- 句子 -->
+
+    <div
+      class="phrase-list"
+      id="phraseList"
+    ></div>
+
+
+    <!-- 對話模式 -->
+
+    <div class="conversation">
+
+      <div class="conversation-title">
+        💬 一鍵對話模式
+      </div>
+
+      <div class="conversation-help">
+        不用打字，直接選一句給對方看或播放。
+      </div>
+
+
+      <div class="conversation-screen">
+
+        <div
+          class="conversation-cn"
+          id="conversationCn"
+        ></div>
+
+        <div
+          class="conversation-jp"
+          id="conversationJp"
+        ></div>
+
+        <div
+          class="conversation-romaji"
+          id="conversationRomaji"
+        ></div>
+
+      </div>
+
+
+      <div class="conversation-buttons">
+
+        <button
+          class="repeat-btn"
+          onclick="speakCurrent()"
+        >
+          🔊 再念一次
+        </button>
+
+        <button
+          class="next-btn"
+          onclick="nextConversation()"
+        >
+          ➜ 下一句
+        </button>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     記帳
+======================================================= -->
+
+<section
+  class="section"
+  id="expenseSection"
+>
+
+  <h2 class="section-title">
+    💴 記帳小助手
+  </h2>
+
+
+  <div class="expense-summary">
+
+    <div class="expense-label">
+      目前總花費
+    </div>
+
+    <div
+      class="expense-total"
+      id="totalTwd"
+    >
+      NT$ 0
+    </div>
+
+    <div
+      class="expense-jpy"
+      id="totalJpy"
+    >
+      ¥ 0
+    </div>
+
+
+    <div class="rate-row">
+
+      <span>
+        💱 JPY → TWD
+      </span>
+
+      <input
+        id="rateInput"
+        type="number"
+        step="0.001"
+        value="0.220"
+      >
+
+    </div>
+
+  </div>
+
+
+  <div class="expense-form">
+
+    <div class="input-group">
+
+      <input
+        class="field"
+        id="expenseName"
+        placeholder="例如：晚餐"
+      >
+
+      <input
+        class="field"
+        id="expenseAmount"
+        type="number"
+        inputmode="decimal"
+        placeholder="日幣 ¥"
+      >
+
+    </div>
+
+
+    <button
+      class="add-btn"
+      onclick="addExpense()"
+    >
+      ＋ 加入一筆支出
+    </button>
+
+  </div>
+
+
+  <div
+    class="expense-list"
+    id="expenseList"
+  ></div>
+
+
+  <button
+    class="clear-btn"
+    onclick="clearExpenses()"
+  >
+    清除全部記帳
+  </button>
+
+</section>
+
+
+
+<!-- ======================================================
+     行李
+======================================================= -->
+
+<section
+  class="section"
+  id="packingSection"
+>
+
+  <h2 class="section-title">
+    🧳 出發前行李清單
+  </h2>
+
+
+  <div class="packing">
+
+    <div id="packingList"></div>
+
+    <div class="packing-progress">
+
+      <div
+        class="packing-progress-bar"
+        id="packingProgress"
+      ></div>
+
+    </div>
+
+
+    <div
+      id="packingStatus"
+      style="
+        margin-top:8px;
+        color:#71808a;
+        font-size:13px;
+      "
+    ></div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     緊急資訊
+======================================================= -->
+
+<section
+  class="section"
+  id="safetySection"
+>
+
+  <h2 class="section-title">
+    🆘 旅行安全
+  </h2>
+
+
+  <div class="safety">
+
+    <div class="emergency-grid">
+
+      <button
+        class="emergency-btn police"
+        onclick="callNumber('110')"
+      >
+        🚓<br>
+        警察 110
+      </button>
+
+
+      <button
+        class="emergency-btn ambulance"
+        onclick="callNumber('119')"
+      >
+        🚑<br>
+        救護／消防 119
+      </button>
+
+
+      <button
+        class="emergency-btn jnto"
+        onclick="callNumber('050-3816-2787')"
+      >
+        🇯🇵 JNTO 旅客熱線<br>
+        050-3816-2787
+      </button>
+
+
+      <button
+        class="emergency-btn mcc"
+        onclick="window.open(
+          'https://www.okinawa-mcc.jp/',
+          '_blank'
+        )"
+      >
+        🗣️ 沖繩多語言支援
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ======================================================
+     BOTTOM NAV
+======================================================= -->
+
+<nav class="bottom-bar">
+
+  <button
+    class="bottom-btn active"
+    onclick="
+      scrollToSection(
+        'scheduleSection',
+        this
+      )
+    "
+  >
+    <span>🗺️</span>
+    行程
+  </button>
+
+
+  <button
+    class="bottom-btn"
+    onclick="
+      scrollToSection(
+        'translateSection',
+        this
+      )
+    "
+  >
+    <span>🗣️</span>
+    翻譯
+  </button>
+
+
+  <button
+    class="bottom-btn"
+    onclick="
+      scrollToSection(
+        'expenseSection',
+        this
+      )
+    "
+  >
+    <span>💴</span>
+    記帳
+  </button>
+
+
+  <button
+    class="bottom-btn"
+    onclick="
+      scrollToSection(
+        'packingSection',
+        this
+      )
+    "
+  >
+    <span>🧳</span>
+    行李
+  </button>
+
+</nav>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================================
+   行程資料
+========================================================= */
+
+const itinerary = {
+
+1: {
+
+date:"9/26",
+
+title:"DAY 1｜那霸市區迎賓",
+
+subtitle:
+"抵達沖繩・市區入住・輕鬆晚餐",
+
+route:"那霸市區",
+
+stops:[
+
+{
+time:"抵達",
+icon:"✈️",
+place:"那霸機場",
+description:
+"抵達沖繩後領取行李並完成租車相關手續。",
+map:"Naha Airport Okinawa"
+},
+
+{
+time:"下午",
+icon:"🏨",
+place:"沖繩縣廳前大和ROYNET酒店",
+description:
+"入住那霸市中心。第一天避免長途拉車，讓長輩先休息。",
+map:"Daiwa Roynet Hotel Okinawa Kencho-mae"
+},
+
+{
+time:"晚餐",
+icon:"🍢",
+place:"YAKITORI TORISHOW",
+description:
+"市區晚餐，入住飯店後前往用餐。",
+map:"YAKITORI TORISHOW Okinawa"
+}
+
+]
+
+},
+
+
+2: {
+
+date:"9/27",
+
+title:"DAY 2｜南部海景與購物",
+
+subtitle:
+"水族館・Outlet・瀨長島・琉球料理",
+
+route:"南部海線",
+
+stops:[
+
+{
+time:"上午",
+icon:"🐠",
+place:"DMM Kariyushi 水族館",
+description:
+"室內景點，適合避暑及長輩慢慢參觀。",
+map:"DMM Kariyushi Aquarium"
+},
+
+{
+time:"午餐",
+icon:"🍽️",
+place:"Karakara Saien Buffet",
+description:
+"自助餐午餐。",
+map:"Karakara Saien Buffet Okinawa"
+},
+
+{
+time:"下午",
+icon:"🛍️",
+place:"Okinawa Outlet Mall Ashibinaa",
+description:
+"購物與休息。",
+map:"Okinawa Outlet Mall Ashibinaa"
+},
+
+{
+time:"傍晚",
+icon:"🌊",
+place:"瀨長島 UMIKAJI TERRACE",
+description:
+"海景露台休息、喝咖啡。",
+map:"Umikaji Terrace Senagajima"
+},
+
+{
+time:"晚餐",
+icon:"🍲",
+place:"Urizun",
+description:
+"傳統琉球料理。",
+map:"Urizun Okinawa"
+}
+
+]
+
+},
+
+
+3: {
+
+date:"9/28",
+
+title:"DAY 3｜中部芬多精與別墅入住",
+
+subtitle:
+"植物園・萬座毛・島豚料理・包棟入住",
+
+route:"那霸 → 恩納 → 金武",
+
+stops:[
+
+{
+time:"上午",
+icon:"🌿",
+place:"東南植物園",
+description:
+"綠意景觀與慢步調行程。",
+map:"Southeast Botanical Gardens Okinawa"
+},
+
+{
+time:"午餐",
+icon:"🥩",
+place:"Hillside Grill",
+description:
+"中部午餐。",
+map:"Hillside Grill Okinawa"
+},
+
+{
+time:"下午",
+icon:"🌊",
+place:"萬座毛",
+description:
+"欣賞海岸景觀，依長輩體力調整停留時間。",
+map:"Cape Manzamo Okinawa"
+},
+
+{
+time:"下午茶",
+icon:"☕",
+place:"下午茶彈性站",
+description:
+"依當天體力與時間決定是否停留。",
+map:"Onna Okinawa Cafe"
+},
+
+{
+time:"晚餐",
+icon:"🐖",
+place:"Shimabutaya Onna",
+description:
+"島豚蒸籠料理。",
+map:"Shimabutaya Onna Okinawa"
+},
+
+{
+time:"入住",
+icon:"🏡",
+place:"335_金武町 A棟",
+description:
+"開始包棟住宿，Day 3～Day 5 連住三晚。",
+map:"Kin Town Okinawa"
+}
+
+]
+
+},
+
+
+4: {
+
+date:"9/29",
+
+title:"DAY 4｜北部古宇利藍與奢華燒肉",
+
+subtitle:
+"古宇利島・蝦蝦飯・備瀨・和牛",
+
+route:"金武 → 古宇利 → 恩納 → 金武",
+
+stops:[
+
+{
+time:"上午",
+icon:"🌉",
+place:"古宇利島・古宇利大橋",
+description:
+"欣賞北部海景與跨海大橋。",
+map:"Kouri Island Okinawa"
+},
+
+{
+time:"午餐",
+icon:"🍤",
+place:"Kouri Shrimp",
+description:
+"蝦蝦飯午餐。",
+map:"Kouri Shrimp Okinawa"
+},
+
+{
+time:"下午",
+icon:"🌳",
+place:"備瀨福木林道",
+description:
+"視長輩體力彈性前往，累了可直接回別墅。",
+map:"Bise Fukugi Tree Road"
+},
+
+{
+time:"晚餐",
+icon:"🥩",
+place:"琉球之牛 恩納別館",
+description:
+"高級和牛燒肉。",
+map:"Ryukyu no Ushi Onna"
+},
+
+{
+time:"返回",
+icon:"🏡",
+place:"335_金武町 A棟",
+description:
+"返回別墅休息。",
+map:"Kin Town Okinawa"
+}
+
+]
+
+},
+
+
+5: {
+
+date:"9/30",
+
+title:"DAY 5｜海中道路馳騁與平安返台",
+
+subtitle:
+"最後兜風・還車・那霸機場",
+
+route:"金武 → 海中道路 → 那霸",
+
+stops:[
+
+{
+time:"上午",
+icon:"🏡",
+place:"335_金武町 A棟退房",
+description:
+"整理行李並確認房內物品。",
+map:"Kin Town Okinawa"
+},
+
+{
+time:"上午",
+icon:"🌊",
+place:"Kaichu Road｜海中道路",
+description:
+"最後海景兜風。",
+map:"Kaichu Road Okinawa"
+},
+
+{
+time:"11:15 前",
+icon:"🔑",
+place:"租車公司還車",
+description:
+"務必預留加油、還車及接駁時間。",
+map:"Toyota Rent a Car Naha Airport Okinawa"
+},
+
+{
+time:"13:25 / 14:00",
+icon:"✈️",
+place:"那霸機場",
+description:
+"13:25 桃園班機／14:00 高雄班機。",
+map:"Naha Airport"
+}
+
+]
+
+}
+
+};
+
+
+
+/* =========================================================
+   翻譯資料
+========================================================= */
+
+const translationData = {
+
+
+"🙏 基本會話":[
+
+{
+cn:"你好／您好",
+jp:"こんにちは",
+romaji:"Konnichiwa"
+},
+
+{
+cn:"謝謝",
+jp:"ありがとうございます",
+romaji:"Arigatou gozaimasu"
+},
+
+{
+cn:"不好意思／打擾了",
+jp:"すみません",
+romaji:"Sumimasen"
+},
+
+{
+cn:"請幫幫我",
+jp:"助けてください",
+romaji:"Tasukete kudasai"
+},
+
+{
+cn:"請再說一次",
+jp:"もう一度お願いします",
+romaji:"Mou ichido onegaishimasu"
+},
+
+{
+cn:"我不懂日文",
+jp:"日本語がわかりません",
+romaji:"Nihongo ga wakarimasen"
+}
+
+],
+
+
+"🍜 餐廳":[
+
+{
+cn:"請問有中文菜單嗎？",
+jp:"中国語のメニューはありますか？",
+romaji:"Chūgokugo no menyū wa arimasu ka?"
+},
+
+{
+cn:"我們有幾位？",
+jp:"何名様ですか？",
+romaji:"Nanmei-sama desu ka?"
+},
+
+{
+cn:"我們有四位。",
+jp:"4人です。",
+romaji:"Yonin desu."
+},
+
+{
+cn:"這個不要辣。",
+jp:"これは辛くしないでください。",
+romaji:"Kore wa karaku shinaide kudasai."
+},
+
+{
+cn:"請給我水。",
+jp:"お水をください。",
+romaji:"Omizu o kudasai."
+},
+
+{
+cn:"買單，謝謝。",
+jp:"お会計をお願いします。",
+romaji:"O-kaikei o onegaishimasu."
+}
+
+],
+
+
+"🏨 飯店":[
+
+{
+cn:"我們要辦理入住。",
+jp:"チェックインをお願いします。",
+romaji:"Chekku-in o onegaishimasu."
+},
+
+{
+cn:"這是我的護照。",
+jp:"これは私のパスポートです。",
+romaji:"Kore wa watashi no pasupōto desu."
+},
+
+{
+cn:"Wi-Fi 密碼是多少？",
+jp:"Wi-Fiのパスワードは何ですか？",
+romaji:"Wi-Fi no pasuwādo wa nan desu ka?"
+},
+
+{
+cn:"可以幫我們叫計程車嗎？",
+jp:"タクシーを呼んでもらえますか？",
+romaji:"Takushī o yonde moraemasu ka?"
+},
+
+{
+cn:"我們需要一條毛巾。",
+jp:"タオルを一枚お願いします。",
+romaji:"Taoru o ichimai onegaishimasu."
+}
+
+],
+
+
+"🚗 租車／開車":[
+
+{
+cn:"我們要取車。",
+jp:"レンタカーを受け取りたいです。",
+romaji:"Rentakā o uketoritai desu."
+},
+
+{
+cn:"這台車怎麼使用？",
+jp:"この車の使い方を教えてください。",
+romaji:"Kono kuruma no tsukaikata o oshiete kudasai."
+},
+
+{
+cn:"請問加油站在哪裡？",
+jp:"ガソリンスタンドはどこですか？",
+romaji:"Gasorin sutando wa doko desu ka?"
+},
+
+{
+cn:"請問這裡可以停車嗎？",
+jp:"ここに駐車できますか？",
+romaji:"Koko ni chūsha dekimasu ka?"
+},
+
+{
+cn:"我們要還車。",
+jp:"車を返却したいです。",
+romaji:"Kuruma o henkyaku shitai desu."
+}
+
+],
+
+
+"🛍️ 購物":[
+
+{
+cn:"這個多少錢？",
+jp:"これはいくらですか？",
+romaji:"Kore wa ikura desu ka?"
+},
+
+{
+cn:"可以刷卡嗎？",
+jp:"クレジットカードは使えますか？",
+romaji:"Kurejitto kādo wa tsukaemasu ka?"
+},
+
+{
+cn:"可以使用現金嗎？",
+jp:"現金は使えますか？",
+romaji:"Genkin wa tsukaemasu ka?"
+},
+
+{
+cn:"不用袋子，謝謝。",
+jp:"袋はいりません。ありがとうございます。",
+romaji:"Fukuro wa irimasen. Arigatou gozaimasu."
+}
+
+],
+
+
+"🚻 廁所":[
+
+{
+cn:"請問廁所在哪裡？",
+jp:"トイレはどこですか？",
+romaji:"Toire wa doko desu ka?"
+},
+
+{
+cn:"請問有無障礙廁所嗎？",
+jp:"多目的トイレはありますか？",
+romaji:"Tamokuteki toire wa arimasu ka?"
+}
+
+],
+
+
+"🏥 身體不舒服":[
+
+{
+cn:"我不舒服。",
+jp:"気分が悪いです。",
+romaji:"Kibun ga warui desu."
+},
+
+{
+cn:"我需要看醫生。",
+jp:"病院に行きたいです。",
+romaji:"Byōin ni ikitai desu."
+},
+
+{
+cn:"我需要救護車。",
+jp:"救急車を呼んでください。",
+romaji:"Kyūkyūsha o yonde kudasai."
+},
+
+{
+cn:"我有過敏。",
+jp:"アレルギーがあります。",
+romaji:"Arerugī ga arimasu."
+},
+
+{
+cn:"請慢慢說。",
+jp:"ゆっくり話してください。",
+romaji:"Yukkuri hanashite kudasai."
+}
+
+],
+
+
+"🆘 緊急":[
+
+{
+cn:"請幫助我。",
+jp:"助けてください。",
+romaji:"Tasukete kudasai."
+},
+
+{
+cn:"請幫我叫警察。",
+jp:"警察を呼んでください。",
+romaji:"Keisatsu o yonde kudasai."
+},
+
+{
+cn:"請幫我叫救護車。",
+jp:"救急車を呼んでください。",
+romaji:"Kyūkyūsha o yonde kudasai."
+},
+
+{
+cn:"我迷路了。",
+jp:"道に迷いました。",
+romaji:"Michi ni mayoimashita."
+},
+
+{
+cn:"我的家人不見了。",
+jp:"家族とはぐれました。",
+romaji:"Kazoku to haguremashita."
+}
+
+]
+
+};
+
+
+
+/* =========================================================
+   狀態
+========================================================= */
+
+let currentDay = 1;
+
+let currentCategory =
+  Object.keys(translationData)[0];
+
+let conversationIndex = 0;
+
+
+let expenses =
+  JSON.parse(
+    localStorage.getItem(
+      "okinawaExpenses"
+    ) || "[]"
+  );
+
+
+let packingState =
+  JSON.parse(
+    localStorage.getItem(
+      "okinawaPacking"
+    ) || "{}"
+  );
+
+
+let exchangeRate =
+  Number(
+    localStorage.getItem(
+      "okinawaRate"
+    ) || "0.220"
+  );
+
+
+/* =========================================================
+   行李
+========================================================= */
+
+const packingItems = [
+
+"護照",
+
+"駕照",
+
+"日文駕照譯本",
+
+"日常藥品",
+
+"薄外套",
+
+"防曬用品",
+
+"帽子",
+
+"雨傘",
+
+"充電器／行動電源",
+
+"旅行保險資料",
+
+"飯店／別墅入住資訊",
+
+"租車文件"
+
+];
+
+
+
+/* =========================================================
+   初始化
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    document
+      .getElementById(
+        "rateInput"
+      )
+      .value =
+      exchangeRate.toFixed(3);
+
+
+    renderDayTabs();
+
+    renderDay();
+
+    renderTranslator();
+
+    renderExpenses();
+
+    renderPacking();
+
+    updateConversation();
+
+
+    document
+      .getElementById(
+        "rateInput"
+      )
+      .addEventListener(
+        "input",
+        updateRate
+      );
+
+  }
+);
+
+
+
+/* =========================================================
+   Day Tabs
+========================================================= */
+
+function renderDayTabs() {
+
+  const container =
+    document.getElementById(
+      "dayTabs"
+    );
+
+  container.innerHTML = "";
+
+
+  Object.keys(itinerary)
+    .forEach(day => {
+
+      const data =
+        itinerary[day];
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+      button.className =
+        `day-btn ${
+          Number(day) === currentDay
+          ? "active"
+          : ""
+        }`;
+
+      button.innerHTML =
+        `DAY ${day}
+         <small>
+           ${data.date}
+         </small>`;
+
+
+      button.onclick = () => {
+
+        currentDay =
+          Number(day);
+
+        renderDayTabs();
+
+        renderDay();
+
+      };
+
+
+      container
+        .appendChild(button);
+
+    });
+
+}
+
+
+
+/* =========================================================
+   Render Day
+========================================================= */
+
+function renderDay() {
+
+  const data =
+    itinerary[currentDay];
+
+
+  document
+    .getElementById(
+      "dayTitle"
+    )
+    .textContent =
+    data.title;
+
+
+  document
+    .getElementById(
+      "daySubtitle"
+    )
+    .textContent =
+    data.subtitle;
+
+
+  document
+    .getElementById(
+      "routePill"
+    )
+    .textContent =
+    data.route;
+
+
+  const timeline =
+    document.getElementById(
+      "timeline"
+    );
+
+
+  timeline.innerHTML = "";
+
+
+  data.stops.forEach(
+    stop => {
+
+      const element =
+        document.createElement(
+          "div"
+        );
+
+
+      element.className =
+        "stop";
+
+
+      const villa =
+        stop.place.includes(
+          "335_金武町 A棟"
+        );
+
+
+      element.innerHTML = `
+
+        <div class="stop-dot"></div>
+
+        <article
+          class="card ${
+            villa ? "villa" : ""
+          }"
+        >
+
+          ${
+            villa
+            ?
+            `
+            <div class="villa-badge">
+              🏡 連住 3 晚
+            </div>
+            `
+            :
+            ""
+          }
+
+
+          <div class="time">
+
+            ${stop.icon}
+
+            ${stop.time}
+
+          </div>
+
+
+          <h3 class="place">
+            ${stop.place}
+          </h3>
+
+
+          <p class="description">
+            ${stop.description}
+          </p>
+
+
+          <div class="route-line">
+            📍 導航目的地：
+            ${stop.place}
+          </div>
+
+
+          <button
+            class="map-btn"
+            onclick="
+              openMap(
+                '${escapeQuotes(stop.map)}'
+              )
+            "
+          >
+            🗺️ 開啟 Google Maps
+          </button>
+
+        </article>
+      `;
+
+
+      timeline
+        .appendChild(element);
+
+    });
+
+
+  document
+    .getElementById(
+      "flightNotice"
+    )
+    .style.display =
+    currentDay === 5
+    ? "block"
+    : "none";
+
+}
+
+
+
+/* =========================================================
+   Google Maps
+========================================================= */
+
+function openMap(destination) {
+
+  const encoded =
+    encodeURIComponent(
+      destination
+    );
+
+
+  const url =
+    `https://www.google.com/maps/dir/?api=1&destination=${encoded}`;
+
+
+  window.open(
+    url,
+    "_blank"
+  );
+
+}
+
+
+function escapeQuotes(text) {
+
+  return text
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'");
+
+}
+
+
+
+/* =========================================================
+   翻譯分類
+========================================================= */
+
+function renderTranslator() {
+
+  const categories =
+    document.getElementById(
+      "translateCategories"
+    );
+
+
+  categories.innerHTML = "";
+
+
+  Object.keys(
+    translationData
+  ).forEach(category => {
+
+    const button =
+      document.createElement(
+        "button"
+      );
+
+
+    button.className =
+      `category-btn ${
+        category === currentCategory
+        ? "active"
+        : ""
+      }`;
+
+
+    button.textContent =
+      category;
+
+
+    button.onclick = () => {
+
+      currentCategory =
+        category;
+
+      conversationIndex = 0;
+
+      renderTranslator();
+
+      updateConversation();
+
+    };
+
+
+    categories
+      .appendChild(button);
+
+  });
+
+
+  renderPhrases();
+
+}
+
+
+
+/* =========================================================
+   翻譯句子
+========================================================= */
+
+function renderPhrases() {
+
+  const list =
+    document.getElementById(
+      "phraseList"
+    );
+
+
+  list.innerHTML = "";
+
+
+  translationData[
+    currentCategory
+  ].forEach(
+    (phrase,index) => {
+
+      const element =
+        document.createElement(
+          "div"
+        );
+
+
+      element.className =
+        "phrase";
+
+
+      element.innerHTML = `
+
+        <div class="phrase-chinese">
+          ${phrase.cn}
+        </div>
+
+        <div class="phrase-japanese">
+          ${phrase.jp}
+        </div>
+
+        <div class="phrase-romaji">
+          ${phrase.romaji}
+        </div>
+
+
+        <div class="phrase-actions">
+
+          <button
+            class="phrase-btn speak-btn"
+            onclick="
+              speakJapanese(
+                '${escapeQuotes(phrase.jp)}'
+              )
+            "
+          >
+            🔊 播放日文
+          </button>
+
+
+          <button
+            class="phrase-btn copy-btn"
+            onclick="
+              copyText(
+                '${escapeQuotes(phrase.jp)}'
+              )
+            "
+          >
+            📋 複製日文
+          </button>
+
+        </div>
+
+      `;
+
+
+      list.appendChild(
+        element
+      );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   語音朗讀
+========================================================= */
+
+function speakJapanese(text) {
+
+  if (
+    !("speechSynthesis" in window)
+  ) {
+
+    alert(
+      "此 iPhone 瀏覽器不支援語音朗讀。"
+    );
+
+    return;
+
+  }
+
+
+  window.speechSynthesis.cancel();
+
+
+  const utterance =
+    new SpeechSynthesisUtterance(
+      text
+    );
+
+
+  utterance.lang =
+    "ja-JP";
+
+
+  utterance.rate =
+    0.78;
+
+
+  utterance.pitch =
+    1;
+
+
+  window.speechSynthesis
+    .speak(utterance);
+
+}
+
+
+
+/* =========================================================
+   對話模式
+========================================================= */
+
+function updateConversation() {
+
+  const list =
+    translationData[
+      currentCategory
+    ];
+
+
+  const phrase =
+    list[
+      conversationIndex %
+      list.length
+    ];
+
+
+  document
+    .getElementById(
+      "conversationCn"
+    )
+    .textContent =
+    phrase.cn;
+
+
+  document
+    .getElementById(
+      "conversationJp"
+    )
+    .textContent =
+    phrase.jp;
+
+
+  document
+    .getElementById(
+      "conversationRomaji"
+    )
+    .textContent =
+    phrase.romaji;
+
+}
+
+
+
+function nextConversation() {
+
+  const list =
+    translationData[
+      currentCategory
+    ];
+
+
+  conversationIndex =
+    (
+      conversationIndex + 1
+    ) % list.length;
+
+
+  updateConversation();
+
+
+  speakCurrent();
+
+}
+
+
+
+function speakCurrent() {
+
+  const list =
+    translationData[
+      currentCategory
+    ];
+
+
+  const phrase =
+    list[
+      conversationIndex %
+      list.length
+    ];
+
+
+  speakJapanese(
+    phrase.jp
+  );
+
+}
+
+
+
+/* =========================================================
+   複製
+========================================================= */
+
+async function copyText(text) {
+
+  try {
+
+    await navigator
+      .clipboard
+      .writeText(text);
+
+
+    alert(
+      "已複製日文，可以貼給對方看。"
+    );
+
+  } catch {
+
+    alert(
+      "請長按日文文字進行複製。"
+    );
+
+  }
+
+}
+
+
+
+/* =========================================================
+   記帳
+========================================================= */
+
+function updateRate(event) {
+
+  const value =
+    Number(
+      event.target.value
+    );
+
+
+  if (
+    !value ||
+    value <= 0
+  ) {
+
+    return;
+
+  }
+
+
+  exchangeRate =
+    value;
+
+
+  localStorage.setItem(
+    "okinawaRate",
+    exchangeRate
+  );
+
+
+  renderExpenses();
+
+}
+
+
+
+function addExpense() {
+
+  const name =
+    document
+      .getElementById(
+        "expenseName"
+      )
+      .value
+      .trim();
+
+
+  const amount =
+    Number(
+      document
+        .getElementById(
+          "expenseAmount"
+        )
+        .value
+    );
+
+
+  if (!name) {
+
+    alert(
+      "請輸入支出項目"
+    );
+
+    return;
+
+  }
+
+
+  if (
+    !amount ||
+    amount <= 0
+  ) {
+
+    alert(
+      "請輸入正確的日幣金額"
+    );
+
+    return;
+
+  }
+
+
+  expenses.unshift({
+
+    id: Date.now(),
+
+    name,
+
+    amount,
+
+    day: currentDay,
+
+    date:
+      new Date()
+      .toLocaleDateString(
+        "zh-TW",
+        {
+          month:"numeric",
+          day:"numeric"
+        }
+      )
+
+  });
+
+
+  localStorage.setItem(
+    "okinawaExpenses",
+    JSON.stringify(
+      expenses
+    )
+  );
+
+
+  document
+    .getElementById(
+      "expenseName"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "expenseAmount"
+    )
+    .value = "";
+
+
+  renderExpenses();
+
+}
+
+
+
+function deleteExpense(id) {
+
+  expenses =
+    expenses.filter(
+      item =>
+        item.id !== id
+    );
+
+
+  localStorage.setItem(
+    "okinawaExpenses",
+    JSON.stringify(
+      expenses
+    )
+  );
+
+
+  renderExpenses();
+
+}
+
+
+
+function clearExpenses() {
+
+  if (
+    !expenses.length
+  ) return;
+
+
+  if (
+    !confirm(
+      "確定清除全部記帳？"
+    )
+  ) return;
+
+
+  expenses = [];
+
+
+  localStorage.removeItem(
+    "okinawaExpenses"
+  );
+
+
+  renderExpenses();
+
+}
+
+
+
+function renderExpenses() {
+
+  const totalJpy =
+    expenses.reduce(
+      (sum,item) =>
+        sum +
+        Number(item.amount),
+      0
+    );
+
+
+  const totalTwd =
+    totalJpy *
+    exchangeRate;
+
+
+  document
+    .getElementById(
+      "totalJpy"
+    )
+    .textContent =
+    `¥ ${totalJpy.toLocaleString()}`;
+
+
+  document
+    .getElementById(
+      "totalTwd"
+    )
+    .textContent =
+    `NT$ ${Math.round(
+      totalTwd
+    ).toLocaleString()}`;
+
+
+  const list =
+    document.getElementById(
+      "expenseList"
+    );
+
+
+  list.innerHTML = "";
+
+
+  if (
+    !expenses.length
+  ) {
+
+    list.innerHTML = `
+
+      <div
+        style="
+          text-align:center;
+          color:#8b979c;
+          background:white;
+          border-radius:15px;
+          padding:18px;
+        "
+      >
+        目前還沒有記帳資料
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  expenses.forEach(
+    item => {
+
+      const twd =
+        item.amount *
+        exchangeRate;
+
+
+      const element =
+        document.createElement(
+          "div"
+        );
+
+
+      element.className =
+        "expense-item";
+
+
+      element.innerHTML = `
+
+        <div>
+
+          <div class="expense-name">
+            ${item.name}
+          </div>
+
+          <div class="expense-date">
+            DAY ${item.day}
+            · ${item.date}
+          </div>
+
+        </div>
+
+
+        <div class="expense-money">
+
+          <strong>
+            ¥ ${Number(
+              item.amount
+            ).toLocaleString()}
+          </strong>
+
+          <span
+            style="
+              color:#71808a;
+              font-size:12px;
+            "
+          >
+            ≈ NT$
+            ${Math.round(
+              twd
+            ).toLocaleString()}
+          </span>
+
+
+          <button
+            class="delete-btn"
+            onclick="
+              deleteExpense(
+                ${item.id}
+              )
+            "
+          >
+            ×
+          </button>
+
+        </div>
+
+      `;
+
+
+      list.appendChild(
+        element
+      );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   行李
+========================================================= */
+
+function renderPacking() {
+
+  const container =
+    document.getElementById(
+      "packingList"
+    );
+
+
+  container.innerHTML = "";
+
+
+  packingItems.forEach(
+    (item,index) => {
+
+      const checked =
+        Boolean(
+          packingState[index]
+        );
+
+
+      const element =
+        document.createElement(
+          "label"
+        );
+
+
+      element.className =
+        `check-item ${
+          checked ? "done" : ""
+        }`;
+
+
+      element.innerHTML = `
+
+        <input
+          type="checkbox"
+          ${checked ? "checked" : ""}
+          onchange="
+            togglePacking(
+              ${index},
+              this.checked
+            )
+          "
+        >
+
+        <span>
+          ${item}
+        </span>
+
+      `;
+
+
+      container.appendChild(
+        element
+      );
+
+    });
+
+
+  updatePackingProgress();
+
+}
+
+
+
+function togglePacking(
+  index,
+  checked
+) {
+
+  packingState[index] =
+    checked;
+
+
+  localStorage.setItem(
+    "okinawaPacking",
+    JSON.stringify(
+      packingState
+    )
+  );
+
+
+  renderPacking();
+
+}
+
+
+
+function updatePackingProgress() {
+
+  const completed =
+    packingItems.filter(
+      (_,index) =>
+        Boolean(
+          packingState[index]
+        )
+    ).length;
+
+
+  const percentage =
+    Math.round(
+      completed /
+      packingItems.length *
+      100
+    );
+
+
+  document
+    .getElementById(
+      "packingProgress"
+    )
+    .style.width =
+    `${percentage}%`;
+
+
+  document
+    .getElementById(
+      "packingStatus"
+    )
+    .textContent =
+    `已完成 ${completed} / ${
+      packingItems.length
+    } 項（${percentage}%）`;
+
+}
+
+
+
+/* =========================================================
+   緊急電話
+========================================================= */
+
+function callNumber(number) {
+
+  window.location.href =
+    `tel:${number}`;
+
+}
+
+
+
+/* =========================================================
+   底部選單
+========================================================= */
+
+function scrollToSection(
+  id,
+  button
+) {
+
+  document
+    .getElementById(id)
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+
+  document
+    .querySelectorAll(
+      ".bottom-btn"
+    )
+    .forEach(
+      btn =>
+        btn.classList.remove(
+          "active"
+        )
+    );
+
+
+  button.classList.add(
+    "active"
+  );
+
+}
+
+</script>
+
+</body>
+</html>
+```
